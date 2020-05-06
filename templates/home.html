@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<br>
+<div class="container text-center">
+<h1> Shubham's Portfolio </h1>
+</div>
+    <div class="row justify-content-center my-3">
+
+      <div class="col-4">
+        <img src="{% static 'portfolio/IMG-20191226-WA0007.jpg' %}" height="500">
+      </div>
+    </div>
+    <br>
+
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-9 text-center">
+        <h1 id="hometext" class="font-weight-bold">Shubham Rogye is a Developer who lives in Mumbai 😊</h1>
+      </div>
+    </div>
+    <br>
+
+    <h2 class="mt-5">Portfolio</h2>
+    <hr>
+    <br>
+
+    <div class="row">
+    {% for project in projects %}
+    <div class="col-lg-4 col-md-6">
+    <div>
+    
+
+    {% if project.url %}
+    <a href="{{  project.url  }}">
+    <img src="{{project.image.url}}" height="300" width="300" class="img-fluid mb-2">
+      </a>
+
+     {% else %}
+     <img src="{{project.image.url}}" height="300" width="300" class="img-fluid mb-2">
+ 
+    {% endif %}
+
+    <h3> {{project.title}} </h3> 
+    <h3> {{project.description}} </h3> 
+    </div>
+    {% endfor %}
+
+    <!-- Optional JavaScript -->
+   
+      </div>
+{% endblock %}
+
